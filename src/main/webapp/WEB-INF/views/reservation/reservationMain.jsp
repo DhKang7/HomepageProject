@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,38 +10,37 @@
     
     <h2>예약 추가</h2>
     <form action="/reservation/add" method="post">
-        <label for="exId">예약자 ID:</label>
-        <input type="text" id="exId" name="exId" required><br>
+        <label for="exId">병원명:</label>
+        <input type="text" id="exId" name="B_hospital_name" required><br>
         
-        <label for="exPw">비밀번호:</label>
-        <input type="password" id="exPw" name="exPw" required><br>
-        
-        <label for="exBookNumber">예약 번호:</label>
-        <input type="text" id="exBookNumber" name="exBookNumber" required><br>
+        <label for="exBookNumber">예약 이름:</label>
+        <input type="text" id="exName" name="B_name" required><br>
         
         <label for="exBookDate">예약 날짜:</label>
-        <input type="text" id="exBookDate" name="exBookDate" required><br>
+        <input type="date" id="exBookDate" name="B_date" required><br>
         
         <input type="submit" value="추가">
     </form>
     
-    <h2>예약 삭제</h2>
-    <form action="/reservation/delete" method="post">
-        <label for="exBookNumberToDelete">삭제할 예약 번호:</label>
-        <input type="text" id="exBookNumberToDelete" name="exBookNumber" required><br>
-        
-        <input type="submit" value="삭제">
-    </form>
-    
-    <h2>예약 수정</h2>
-    <form action="/reservation/modify" method="post">
-        <label for="exBookNumberToModify">수정할 예약 번호:</label>
-        <input type="text" id="exBookNumberToModify" name="exBookNumber" required><br>
-        
-        <label for="exNewBookDate">새로운 예약 날짜:</label>
-        <input type="text" id="exNewBookDate" name="exBookDate" required><br>
-        
-        <input type="submit" value="수정">
-    </form>
+    <h2>예약 목록</h2>
+    <table border="1">
+        <tr>
+            <th>병원명</th>
+            <th>예약 이름</th>
+            <th>예약 날짜</th>
+            <th>동작</th>
+        </tr>
+        <c:forEach var="reservation" items="${reservations}">
+            <tr>
+                <td>${reservation.B_hospital_name}</td>
+                <td>${reservation.B_name}</td>
+                <td>${reservation.B_date}</td>
+                <td>
+                    <a href="/reservation/modify?B_name=${reservation.B_name}">수정</a>
+                    <a href="/reservation/delete?B_name=${reservation.B_name}">삭제</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

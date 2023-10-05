@@ -35,3 +35,10 @@ CREATE TABLE REPLYS(
  	R_WRITEDATE timestamp default now(),
  	R_LIKECOUNT int default 0
  );
+ 
+DROP TABLE if exists book;
+CREATE TABLE book(
+	B_date varchar(50) not null,
+    B_name varchar(50) not null,
+    B_hospital_name varchar (50) not null
+);

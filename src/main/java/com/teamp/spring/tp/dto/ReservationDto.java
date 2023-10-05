@@ -1,42 +1,32 @@
 package com.teamp.spring.tp.dto;
 
-import java.util.Date;
-
 public class ReservationDto {
-    private String exId;
-    private String exPw;
-    private String exBookNumber;
-    private Date exBookDate;
+    private String B_date;
+    private String B_name;
+    private String B_hospital_name;
 
-    public String getExId() {
-        return exId;
+    // Getter and Setter methods for properties
+    public String getB_date() {
+        return B_date;
     }
 
-    public void setExId(String exId) {
-        this.exId = exId;
+    public void setB_date(String B_date) {
+        this.B_date = B_date;
     }
 
-    public String getExPw() {
-        return exPw;
+    public String getB_name() {
+        return B_name;
     }
 
-    public void setExPw(String exPw) {
-        this.exPw = exPw;
+    public void setB_name(String B_name) {
+        this.B_name = B_name;
     }
 
-    public String getExBookNumber() {
-        return exBookNumber;
+    public String getB_hospital_name() {
+        return B_hospital_name;
     }
 
-    public void setExBookNumber(String exBookNumber) {
-        this.exBookNumber = exBookNumber;
-    }
-
-    public Date getExBookDate() {
-        return exBookDate;
-    }
-
-    public void setExBookDate(Date exBookDate) {
-        this.exBookDate = exBookDate;
+    public void setB_hospital_name(String B_hospital_name) {
+        this.B_hospital_name = B_hospital_name;
     }
 }

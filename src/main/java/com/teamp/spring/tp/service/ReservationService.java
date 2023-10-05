@@ -1,15 +1,15 @@
 package com.teamp.spring.tp.service;
 
-import java.util.List;
-
 import com.teamp.spring.tp.dto.ReservationDto;
 
+import java.util.List;
+
 public interface ReservationService {
+    List<ReservationDto> list(String B_name);
 
-    void del(String ex_book_number);
+    void add(ReservationDto reservationDto);
 
-    void add(ReservationDto ReservationDto);
+    void delete(String B_name);
 
-    void modify(ReservationDto ReservationDto);
-    
+    void modify(ReservationDto reservationDto);
 }

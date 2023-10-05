@@ -3,22 +3,23 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.teamp.spring.tp.mapper.ReservationMapper">
-	
-	<select id="list" resultType="com.teamp.spring.tp.dto.ReservationDto">
-		select * from tb_example where ex_list = #{ex_list}
-	</select>
-	
-	<delete id = "del">
-		delete from tb_example where ex_book_number = #{ex_book_number}
-	</delete>
-	
-	<insert id="add">
-	    INSERT INTO tb_example (ex_book_number, ex_book_date) VALUES (#{ex_book_number}, #{ex_book_date})
-	</insert>
 
-	<update id="modify">
-		update tb_example
-		set ex_book_date = #{ex_book_date}
-		where ex_book_number = #{ex_book_number}
-	</update>
+    <select id="list" resultType="com.teamp.spring.tp.dto.ReservationDto">
+        SELECT * FROM book WHERE B_name = #{B_name}
+    </select>
+
+    <delete id="del">
+        DELETE FROM book WHERE B_name = #{B_name}
+    </delete>
+
+    <insert id="add">
+        INSERT INTO book (B_date, B_name, B_hospital_name) VALUES (#{B_date}, #{B_name}, #{B_hospital_name})
+    </insert>
+
+    <update id="modify">
+        UPDATE book
+        SET B_date = #{B_date}
+        WHERE B_name = #{B_name}
+    </update>
+
 </mapper>
