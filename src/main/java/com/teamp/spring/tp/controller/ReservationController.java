@@ -4,6 +4,7 @@ import com.teamp.spring.tp.dto.ReservationDto;
 import com.teamp.spring.tp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -18,8 +19,11 @@ public class ReservationController {
     }
 
     @GetMapping("/list")
-    public List<ReservationDto> list(@RequestParam String B_name) {
-        return reservationService.list(B_name);
+    public ModelAndView list(@RequestParam String B_name) {
+        List<ReservationDto> reservations = reservationService.list(B_name);
+        ModelAndView modelAndView = new ModelAndView("your_jsp_file_name"); // 여기서 "your_jsp_file_name"은 실제 JSP 파일 이름으로 변경해야 합니다.
+        modelAndView.addObject("reservations", reservations);
+        return modelAndView;
     }
 
     @PostMapping("/add")

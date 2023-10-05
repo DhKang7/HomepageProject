@@ -1,5 +1,3 @@
-package com.teamp.spring.tp.dto;
-
 public class ReservationDto {
     private String B_date;
     private String B_name;
