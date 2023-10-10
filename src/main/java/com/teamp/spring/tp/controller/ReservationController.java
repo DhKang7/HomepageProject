@@ -3,20 +3,21 @@ package com.teamp.spring.tp.controller;
 import com.teamp.spring.tp.dto.ReservationDto;
 import com.teamp.spring.tp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/reservation")
-public class ReservationController {
-    private final ReservationService reservationService;
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
-    @Autowired
-    public ReservationController(ReservationService reservationService) {
-        this.reservationService = reservationService;
-    }
+@Log4j
+@RequestMapping("/reservation/*")
+@AllArgsConstructor
+@Controller
+public class ReservationController {
+    private ReservationService reservationService;
 
     @GetMapping("/list")
     public ModelAndView list(@RequestParam String B_name) {
