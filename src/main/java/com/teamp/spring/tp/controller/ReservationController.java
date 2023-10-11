@@ -21,12 +21,15 @@ public class ReservationController {
 
     @GetMapping("/booklist")
     public void booklist(Model model) {
-    	model.addAttribute("list",reservationService.booklist());
+        model.addAttribute("list", reservationService.booklist());
     }
 
     @PostMapping("/bookadd")
-    public String bookadd(@RequestBody ReservationVo reservationDto) {
-        reservationService.bookadd(reservationDto);
+    public String bookadd(
+    		@RequestParam("R_date") String R_date, 
+    		@RequestParam("R_name") String R_name, 
+    		@RequestParam("R_hospital_name") String R_hospital_name){
+        reservationService.bookadd(R_date, R_name, R_hospital_name);
         return "redirect:/reservationMain";
     }
 
@@ -37,8 +40,11 @@ public class ReservationController {
     }
 
     @PostMapping("/bookmodify")
-    public String bookmodify(@RequestBody ReservationVo reservationDto) {
-        reservationService.bookmodify(reservationDto);
+    public String bookmodify(
+        @RequestParam("R_date") String R_date, 
+        @RequestParam("R_name") String R_name, 
+        @RequestParam("R_hospital_name") String R_hospital_name) {
+        reservationService.bookmodify(R_date, R_name, R_hospital_name);
         return "redirect:/reservationMain";
     }
 

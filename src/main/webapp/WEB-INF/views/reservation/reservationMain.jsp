@@ -7,14 +7,13 @@
 </head>
 <body>
     <h1>예약 관리</h1>
-
     <!-- 예약 추가 폼 -->
     <form action="/reservation/bookadd" method="post">
         <h2>예약 추가</h2>
         <label for="add_R_name">이름:</label>
         <input type="text" id="add_R_name" name="R_name" required><br>
         <label for="add_R_date">날짜:</label>
-        <input type="date" id="add_R_date" name="R_date" required><br>
+        <input type="text" id="add_R_date" name="R_date" required><br>
         <label for="add_R_hospital_name">병원 이름:</label>
         <input type="text" id="add_R_hospital_name" name="R_hospital_name" required><br>
         <input type="submit" value="예약 추가">

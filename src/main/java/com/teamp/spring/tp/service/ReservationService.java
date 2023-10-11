@@ -3,15 +3,13 @@ package com.teamp.spring.tp.service;
 import com.teamp.spring.tp.dto.ReservationVo;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 public interface ReservationService {
-    public ArrayList<ReservationVo> booklist();
+    ArrayList<ReservationVo> booklist();
 
-    public void bookadd(ReservationVo reservationDto);
+    void bookadd(String R_date, String R_name, String R_hospital_name);
 
-    public void bookdelete(String R_name);
+    void bookdelete(String R_name);
 
-    public void bookmodify(ReservationVo reservationDto);
+    void bookmodify(String R_date, String R_name, String R_hospital_name);
 }
