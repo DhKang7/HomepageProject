@@ -1,34 +1,41 @@
 package com.teamp.spring.tp.service;
 
-import com.teamp.spring.tp.dto.ReservationDto;
+import com.teamp.spring.tp.dto.ReservationVo;
 import com.teamp.spring.tp.mapper.ReservationMapper;
+
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
+
+@Log4j
 @Service
 public class ReservationServiceImpl implements ReservationService {
+	@Setter(onMethod_ = @Autowired)
+	private ReservationMapper reservationMapper;	
 
-    private final ReservationMapper reservationMapper;
-
-    @Autowired
-    public ReservationServiceImpl(ReservationMapper reservationMapper) {
-        this.reservationMapper = reservationMapper;
+    @Override
+    public ArrayList<ReservationVo> booklist() {
+        return reservationMapper.booklist();
     }
 
     @Override
-    public void del(String ex_book_number) {
-        reservationMapper.del(ex_book_number);
+    public void bookadd(ReservationVo reservationDto) {
+        reservationMapper.bookadd(reservationDto);
     }
 
     @Override
-    public void add(ReservationDto ReservationDto) {
-        reservationMapper.add(ReservationDto);
+    public void bookdelete(String R_name) {
+        reservationMapper.bookdelete(R_name);
     }
 
     @Override
-    public void modify(ReservationDto ReservationDto) {
-        reservationMapper.modify(ReservationDto);
+    public void bookmodify(ReservationVo reservationDto) {
+        reservationMapper.bookmodify(reservationDto);
     }
-
 }

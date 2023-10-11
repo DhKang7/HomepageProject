@@ -15,5 +15,6 @@
 <P>  The time on the server is ${serverTime}. </P>
 남준우
 <a href="./Login/createID">회원가입</a>
+<a href="/searchMap">주변병원 검색</a>
 </body>
 </html>

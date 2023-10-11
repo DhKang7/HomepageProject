@@ -1,14 +1,15 @@
 package com.teamp.spring.tp.mapper;
 
-import com.teamp.spring.tp.dto.ReservationDto;
+import java.util.ArrayList;
+import java.util.List;
+import com.teamp.spring.tp.dto.ReservationVo;
 
 public interface ReservationMapper {
+	public ArrayList<ReservationVo> booklist();
 
-	ReservationDto list(String userId);
+    void bookadd(ReservationVo reservationDto);
 
-    void del(String ex_book_number);
+    public void bookdelete(String R_name);
 
-    void add(ReservationDto guestDto);
-
-    void modify(ReservationDto guestDto);
+    void bookmodify(ReservationVo reservationDto);
 }
