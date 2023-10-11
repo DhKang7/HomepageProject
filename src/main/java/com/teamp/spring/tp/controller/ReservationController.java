@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class ReservationController {
 
     @PostMapping("/bookadd")
     public String bookadd(
-    		@RequestParam("R_date") String R_date, 
+    		@RequestParam("R_date") Date R_date, 
     		@RequestParam("R_name") String R_name, 
     		@RequestParam("R_hospital_name") String R_hospital_name){
         reservationService.bookadd(R_date, R_name, R_hospital_name);
@@ -41,7 +42,7 @@ public class ReservationController {
 
     @PostMapping("/bookmodify")
     public String bookmodify(
-        @RequestParam("R_date") String R_date, 
+        @RequestParam("R_date") Date R_date, 
         @RequestParam("R_name") String R_name, 
         @RequestParam("R_hospital_name") String R_hospital_name) {
         reservationService.bookmodify(R_date, R_name, R_hospital_name);

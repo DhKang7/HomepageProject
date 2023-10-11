@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Log4j
 @Service
@@ -20,7 +21,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void bookadd(String R_date, String R_name, String R_hospital_name) {
+    public void bookadd(Date R_date, String R_name, String R_hospital_name) {
         reservationMapper.bookadd(R_date, R_name, R_hospital_name);
     }
 
@@ -30,7 +31,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void bookmodify(String R_date, String R_name, String R_hospital_name) {
+    public void bookmodify(Date R_date, String R_name, String R_hospital_name) {
         ReservationVo reservationDto = new ReservationVo();
         reservationDto.setR_date(R_date);
         reservationDto.setR_name(R_name);
