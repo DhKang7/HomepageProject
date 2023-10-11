@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 public class ReservationController {
     private ReservationService reservationService;
 
-    @GetMapping("/list")
+    @GetMapping("/booklist")
     public ModelAndView booklist(@RequestParam String R_name) {
         List<ReservationDto> reservations = reservationService.booklist(R_name);
         ModelAndView modelAndView = new ModelAndView("reservationList");
@@ -26,22 +26,22 @@ public class ReservationController {
         return modelAndView;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/bookadd")
     public String bookadd(@RequestBody ReservationDto reservationDto) {
         reservationService.bookadd(reservationDto);
-        return "redirect:/reservation/list?R_name=" + reservationDto.getR_name();
+        return "redirect:/reservation/booklist?R_name=" + reservationDto.getR_name();
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/bookdelete")
     public String bookdelete(@RequestParam String R_name) {
         reservationService.bookdelete(R_name);
-        return "redirect:/reservation/list?R_name=" + R_name;
+        return "redirect:/reservation/booklist?R_name=" + R_name;
     }
 
-    @PostMapping("/modify")
+    @PostMapping("/bookmodify")
     public String bookmodify(@RequestBody ReservationDto reservationDto) {
         reservationService.bookmodify(reservationDto);
-        return "redirect:/reservation/list?R_name=" + reservationDto.getR_name();
+        return "redirect:/reservation/booklist?R_name=" + reservationDto.getR_name();
     }
 
 }

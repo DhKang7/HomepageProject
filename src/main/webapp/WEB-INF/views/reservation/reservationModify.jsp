@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>예약 수정</h1>
-    <form action="/reservation/modify" method="get">
+    <form action="/reservation/bookmodify" method="get">
         <input type="hidden" name="R_name" value="${reservation.R_name}">
         <label for="R_name">이름:</label>
         <input type="date" id="R_date" name="R_date" value="${reservation.R_date}" required><br>

@@ -171,10 +171,5 @@ public class LoginController {
 		}
 	}
 	
-	
-
-	@GetMapping("/book")
-	public void book() {
-	}
 
 }

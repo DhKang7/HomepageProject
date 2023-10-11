@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>예약 추가</h1>
-    <form action="/reservation/add" method="get">
+    <form action="/reservation/bookadd" method="get">
     	<input type="text" id="R_name" name="R_name" required><br>
         <label for="R_name">이름:</label>
         <input type="date" id="R_date" name="R_date" required><br>
