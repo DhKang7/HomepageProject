@@ -4,12 +4,13 @@ import com.teamp.spring.tp.dto.ReservationDto;
 
 import java.util.List;
 
+
 public interface ReservationService {
-    List<ReservationDto> list(String B_name);
+    List<ReservationDto> booklist(String R_name);
 
-    void add(ReservationDto reservationDto);
+    void bookadd(ReservationDto reservationDto);
 
-    void delete(String B_name);
+    void bookdelete(String R_name);
 
-    void modify(ReservationDto reservationDto);
+    void bookmodify(ReservationDto reservationDto);
 }

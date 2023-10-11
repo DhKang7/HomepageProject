@@ -101,7 +101,7 @@
 
         kakao.maps.event.addListener(marker, 'click', function () {
             var content = '<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>';
-            content += '<a href="reservation/main">예약하기</a>';
+            content += '<a href="reservation/add">예약하기</a>';
             
             infowindow.setContent(content);
             infowindow.open(map, marker);

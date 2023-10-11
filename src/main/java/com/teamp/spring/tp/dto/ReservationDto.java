@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ReservationDto {
-    private String B_date;
-    private String B_name;
-    private String B_hospital_name;
+    private String R_date;
+    private String R_name;
+    private String R_hospital_name;
 }

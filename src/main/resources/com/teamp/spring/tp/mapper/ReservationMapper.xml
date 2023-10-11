@@ -4,22 +4,22 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.teamp.spring.tp.mapper.ReservationMapper">
 
-    <select id="list" resultType="com.teamp.spring.tp.dto.ReservationDto">
-        SELECT * FROM book WHERE B_name = #{B_name}
+    <select id="booklist" resultType="com.teamp.spring.tp.dto.ReservationDto">
+        SELECT * FROM book WHERE R_name = #{R_name}
     </select>
 
-    <delete id="delete">
-        DELETE FROM book WHERE B_name = #{B_name}
+    <delete id="bookdelete">
+        DELETE FROM book WHERE R_name = #{R_name}
     </delete>
 
-    <insert id="add">
-        INSERT INTO book (B_date, B_name, B_hospital_name) VALUES (#{B_date}, #{B_name}, #{B_hospital_name})
+    <insert id="bookadd">
+        INSERT INTO book (R_date, R_name, R_hospital_name) VALUES (#{R_date}, #{R_name}, #{R_hospital_name})
     </insert>
 
-    <update id="modify">
+    <update id="bookmodify">
         UPDATE book
-        SET B_date = #{B_date}
-        WHERE B_name = #{B_name}
+        SET R_date = #{R_date}
+        WHERE R_name = #{R_name}
     </update>
 
 </mapper>
