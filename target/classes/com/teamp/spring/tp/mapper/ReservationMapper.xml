@@ -12,13 +12,13 @@
         DELETE FROM book WHERE R_name = #{R_name}
     </delete>
 
-    <insert id="bookadd">
-        INSERT INTO book (R_date, R_name, R_hospital_name) VALUES (#{R_date}, #{R_name}, #{R_hospital_name})
-    </insert>
+    <insert id="bookadd" parameterType="map">
+	    INSERT INTO book (R_date, R_name, R_hospital_name) VALUES (#{R_date}, #{R_name}, #{R_hospital_name})
+	</insert>
 
     <update id="bookmodify">
         UPDATE book
-        SET R_date = #{R_date}
+        SET R_date = #{R_date}, R_hospital_name = #{R_hospital_name}
         WHERE R_name = #{R_name}
     </update>
 
