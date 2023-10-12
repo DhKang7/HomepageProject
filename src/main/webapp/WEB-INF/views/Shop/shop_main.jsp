@@ -22,7 +22,11 @@
                 <td>${product.pNo}</td>
                 <td>${product.pName}</td>
                 <td>${product.pPrice}</td>
-                <td><img src="${product.pImage}" alt="${product.pName} 이미지" width="100"></td>
+                <td><!-- 이미지에 링크 추가. 클릭 시 상세 페이지로 이동 -->
+		            <a href="<c:url value='/Shop/productDetail?pNo=${product.pNo}'/>">
+		                <img src="${product.pImage}" alt="${product.pName} 이미지" width="100">
+		            </a>
+		        </td>
             </tr>
         </c:forEach>
     </table>

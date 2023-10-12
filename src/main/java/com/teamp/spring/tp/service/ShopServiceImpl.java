@@ -14,9 +14,12 @@ public class ShopServiceImpl implements ShopService{
 	    public ShopServiceImpl(ShopMapper shopMapper) {
 	        this.shopMapper = shopMapper;
 	    }
-
 	    @Override
 	    public List<ProductInfo> getAllProducts() {
 	        return shopMapper.getAllProducts();
-}
+	    }
+	    @Override
+	    public ProductInfo getProductById(int pNo) {
+	    	return shopMapper.getProductById(pNo);
+	    }
 }

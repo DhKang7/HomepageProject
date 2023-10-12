@@ -19,5 +19,8 @@
     <select id="getAllProducts" resultMap="productInfoMap">
         SELECT * FROM PRODUCTS;
     </select>
+    <select id="getProductById" parameterType="int" resultType="com.teamp.spring.tp.dto.ProductInfo">
+    	SELECT * FROM products WHERE P_NO = #{pNo}
+	</select>
     
 </mapper>

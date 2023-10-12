@@ -51,4 +51,10 @@ public class ShopController {
         model.addAttribute("productList", productList);
 		return "Shop/shop_main";
 	}
+	@RequestMapping("/productDetail")
+    public String productDetail(@RequestParam("pNo") int pNo, Model model) {
+        ProductInfo product = shopService.getProductById(pNo);
+        model.addAttribute("product", product);
+        return "Shop/product_detail";  // 해당 제품의 상세 정보를 보여주는 JSP 페이지
+    }
 }
