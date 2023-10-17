@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>주변 병원 찾기</title>
+    <script src="/resources/reservation.js"></script>
     <style>
         #map {
             width: 100%;
@@ -18,7 +19,6 @@
     </style>
 </head>
 <body>
-    
     <div id="map"></div>
     <!-- Kakao Maps API 스크립트를 추가 -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=480d6b066347f57f4f5e316ebd771566&libraries=services"></script>
@@ -60,6 +60,14 @@
                     }
                 }
             }
+            
+            // 병원을 클릭했을 때 세션에 병원 이름 저장
+            function onHospitalClick(placeName) {
+                // 병원 이름을 세션에 저장
+                sessionStorage.setItem('selectedHospital', placeName);
+                // 예약 관리 페이지로 이동
+                window.location.href = 'reservationMain?hospital=' + encodeURIComponent(placeName);
+            }
         });
     } else { // HTML5의 GeoLocation을 사용할 수 없을 때 기본 위치로 설정
         var mapOption = {
@@ -90,6 +98,20 @@
                 }
             }
         }
+        
+        // 병원을 클릭했을 때 세션에 병원 이름 저장
+        function onHospitalClick(placeName) {
+            // 병원 이름을 세션에 저장
+            sessionStorage.setItem('selectedHospital', placeName);
+            // 예약 관리 페이지로 이동
+            window.location.href = 'reservationMain?hospital=' + encodeURIComponent(placeName);
+        }
+    }
+    
+    // 예약하기 버튼을 클릭했을 때 이벤트 핸들러
+    function onReserveClick(placeName) {
+        // 병원 이름을 URL 매개변수로 전달
+        window.location.href = 'reservationMain?hospital=' + encodeURIComponent(placeName);
     }
 
     // 마커를 표시하고 인포윈도우를 열어주는 함수
@@ -101,7 +123,7 @@
 
         kakao.maps.event.addListener(marker, 'click', function () {
             var content = '<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>';
-            content += '<a href="reservationMain">예약하기</a>';
+            content += '<a href="#" onclick="onReserveClick(\'' + place.place_name + '\')">예약하기</a>';
             
             infowindow.setContent(content);
             infowindow.open(map, marker);
