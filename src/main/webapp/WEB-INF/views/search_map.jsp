@@ -7,7 +7,7 @@
     <script src="/resources/reservation.js"></script>
     <style>
         #map {
-            width: 100%;
+            width: 80%;
             height: 400px;
         }
         /* link - 아직 클릭하지 않은 경우 black 색상 설정 */
