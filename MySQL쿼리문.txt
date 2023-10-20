@@ -10,3 +10,10 @@ CREATE TABLE tb_example(
 	ex_id varchar(50) NOT NULL,
 	ex_date timestamp NULL DEFAULT now()
 );
+
+DROP TABLE if exists book;
+CREATE TABLE book(
+	R_date date not null,
+    R_name varchar(50) not null,
+    R_hospital_name varchar (50) not null
+);
