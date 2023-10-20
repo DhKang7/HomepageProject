@@ -8,7 +8,7 @@
     <style>
         #map {
             width: 80%;
-            height: 400px;
+            height: 800px;
         }
         /* link - 아직 클릭하지 않은 경우 black 색상 설정 */
         a:link { color: black; text-decoration: none;}    
