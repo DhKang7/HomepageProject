@@ -54,7 +54,17 @@
  	<context:component-scan base-package="com.teamp.spring.tp.service">
 	</context:component-scan>
 	<!-- 장우식 추가 -->
+	<mybatis-spring:scan
+		base-package="com.teamp.jang.kiosk" />
 	<context:component-scan base-package="com.teamp.jang.kiosk">
 	</context:component-scan>
-
+	<context:component-scan base-package="com.teamp.jang.kiosk">
+	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	<!-- 장우식 추가 완료 -->
+	
+	
+	
 </beans>
